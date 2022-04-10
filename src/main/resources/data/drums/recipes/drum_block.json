@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#L#",
+        "# #",
+        "#L#"
+    ],
+    "key": {
+        "#": {
+            "tag": "minecraft:planks"
+        },
+        "L": {
+            "item": "minecraft:leather"
+        }
+    },
+    "result": {
+        "item": "drums:drum_block",
+        "count": 1
+    }
+}

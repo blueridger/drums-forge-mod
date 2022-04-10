@@ -1,0 +1,8 @@
+{
+  "drum_sound": {
+    "subtitle": "sounds.drums.drum_sound",
+    "sounds": [
+      "drums:drum_sound2"
+    ]
+  }
+}
