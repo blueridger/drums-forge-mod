@@ -1,5 +1,8 @@
 # Drums Mod
 
+![2022-04-10_14 45 06](https://user-images.githubusercontent.com/11550396/162641324-a07c0977-af02-47b0-803b-c6bc01aee852.png)
+
+
 This is a very small mod for [Minecraft Forge](https://github.com/MinecraftForge/MinecraftForge) that simply adds a craftable Drum block that makes a loud resonant drum noise when hit.
 The block can be destroyed faster with an axe, but the block item will be dropped either way. The crafting recipe involves 6 planks and 2 leather, and is added to your recipe book automatically. That's it!
 
@@ -13,3 +16,5 @@ I am a White colonial settler of mixed Western European descent living on Turtle
 
 ## Maintenance / Contributing
 I may or may not add features and upgrade to future MC versions, but expect that I won't. However, if you are excited to add a feature or do some other maintenance, I welcome you to submit a pull request. This is a very small mod, and should be beginner-friendly as far as Forge mods go.
+
+**Licensed under Creative Commons Attribution 4.0 International**
