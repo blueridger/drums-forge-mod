@@ -21,8 +21,8 @@ public class ModBlocks {
 			Drums.MODID);
 
 	public static final RegistryObject<Block> DRUM_BLOCK = registerBlock("drum_block",
-			() -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(50F, 2f).sound(ModSounds.DRUM_SOUND_TYPE)),
-			CreativeModeTab.TAB_DECORATIONS);
+			() -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(50F, 2f)
+					.sound(ModSounds.DRUM_SOUND_TYPE)), CreativeModeTab.TAB_DECORATIONS);
 	
 
 	private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block,

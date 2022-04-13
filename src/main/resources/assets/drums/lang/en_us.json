@@ -1,4 +1,6 @@
 {
 	"block.drums.drum_block": "Drum Block",
-	"sounds.drums.drum_sound": "Drum Sound"
+	"sounds.drums.drum_sound": "Resonant Drum Sound",
+	"sounds.drums.drum_sound_effect": "Drum Sound",
+	"sounds.drums.silence": ""
 }

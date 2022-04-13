@@ -2,7 +2,19 @@
   "drum_sound": {
     "subtitle": "sounds.drums.drum_sound",
     "sounds": [
-      "drums:drum_sound2"
+      { "name": "drums:drum_sound_mono" }
+    ]
+  },
+  "drum_sound_effect": {
+    "subtitle": "sounds.drums.drum_sound_effect",
+    "sounds": [
+      { "name": "drums:drum_sound_mono" }
+    ]
+  },
+  "silence": {
+    "subtitle": "sounds.drums.silence",
+    "sounds": [
+      "drums:silence"
     ]
   }
 }
