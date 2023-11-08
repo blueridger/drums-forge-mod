@@ -3,8 +3,10 @@ package blueridger.com.github.drums;
 import blueridger.com.github.drums.sound.ModSounds;
 import com.mojang.logging.LogUtils;
 
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -54,12 +56,12 @@ public class Drums {
 
     @SubscribeEvent
     public void onDrumHit(PlayerInteractEvent.LeftClickBlock event) {
-        Level level = event.getWorld();
+        Level level = event.getLevel();
         if (!level.isClientSide) return;
         LOGGER.debug(event.getCancellationResult().toString());
         if (level.getBlockState(event.getPos()).getBlock() != ModBlocks.DRUM_BLOCK.get()) return;
 
-        int id = event.getPlayer().getId();
+        int id = event.getEntity().getId();
         Long latestTick = latestTicks.put(id, level.getGameTime());
         if (latestTick == null || latestTick + 1 != level.getGameTime()) {
             startingTicks.put(id, level.getGameTime());
@@ -68,5 +70,17 @@ public class Drums {
             DrumsPacketHandler.INSTANCE.sendToServer(new ServerBoundDrumHitPacket(event.getPos()));
         }
     }
+
+
+    @SubscribeEvent
+    public void buildContents(CreativeModeTabEvent.BuildContents event) {
+        LOGGER.debug("HELLO FROM BUILD CONTENTS");
+    	if (event.getTab() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            LOGGER.debug("HELLO FROM FUNCTIONAL BLOCKS");
+    		
+    		event.accept(ModBlocks.DRUM_ITEM);
+    		event.accept(ModBlocks.DRUM_BLOCK);
+    	}
+	}
 
 }
