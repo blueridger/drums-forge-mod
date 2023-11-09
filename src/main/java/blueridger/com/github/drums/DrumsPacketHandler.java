@@ -17,6 +17,6 @@ public class DrumsPacketHandler {
     public static void init() {
         int index = 0;
         INSTANCE.messageBuilder(ServerBoundDrumHitPacket.class, index++, NetworkDirection.PLAY_TO_SERVER).encoder(ServerBoundDrumHitPacket::encode)
-                .decoder(ServerBoundDrumHitPacket::new).consumer(ServerBoundDrumHitPacket::handle).add();
+                .decoder(ServerBoundDrumHitPacket::new).consumerNetworkThread(ServerBoundDrumHitPacket::handle).add();
     }
 }

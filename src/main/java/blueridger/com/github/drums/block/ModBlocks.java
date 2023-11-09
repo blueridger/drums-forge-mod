@@ -14,8 +14,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.event.CreativeModeTabEvent;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.DeferredRegister;
@@ -29,7 +28,7 @@ public class ModBlocks {
 			Drums.MODID);
 
 	public static final RegistryObject<Block> DRUM_BLOCK = registerBlock("drum_block",
-			() -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(50F, 2f)
+			() -> new Block(BlockBehaviour.Properties.of().ignitedByLava().mapColor(MapColor.WOOD).strength(50F, 2f)
 					.sound(ModSounds.DRUM_SOUND_TYPE)));
 	public static final RegistryObject<Item> DRUM_ITEM = registerBlockItem("drum_block", DRUM_BLOCK);
 	

@@ -32,7 +32,7 @@ public class ServerBoundDrumHitPacket {
     public boolean handle(Supplier<NetworkEvent.Context> ctx) {
         final var success = new AtomicBoolean(false);
         ctx.get().enqueueWork(() -> {
-            Level level = ctx.get().getSender().level;
+            Level level = ctx.get().getSender().level();
             if (level.hasChunkAt(hitPos) && level.getBlockState(hitPos).getBlock() == ModBlocks.DRUM_BLOCK.get()) {
                 level.playSound(null, hitPos, ModSounds.DRUM_SOUND.get(), SoundSource.BLOCKS,
                         DrumsConfig.volumeEntry.get().floatValue(), DrumsConfig.pitchEntry.get().floatValue());
