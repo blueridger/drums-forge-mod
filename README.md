@@ -5,7 +5,7 @@
  [![](https://cf.way2muchnoise.eu/versions/drums.svg)](https://www.curseforge.com/minecraft/mc-mods/drums) [![Download on CurseForge](https://cf.way2muchnoise.eu/title/Drums_Download_on%20CurseForge%20->.svg)](https://www.curseforge.com/minecraft/mc-mods/drums)
 
 This is a very small mod for [Minecraft Forge](https://github.com/MinecraftForge/MinecraftForge) that simply adds a craftable Drum block that makes a loud resonant drum noise when hit.
-The block can be destroyed faster with an axe, but the block item will be dropped either way. The crafting recipe involves 6 planks and 2 leather, and is added to your recipe book automatically. That's it!
+The block cannot be destroyed with a stick or with an open hand, allowing you to play it without breaking it. The crafting recipe involves 6 planks and 2 leather, and is added to your recipe book automatically. That's it!
 
 The networking logic makes synchronizing your playing with others work pretty well in low-latency servers. You can adjust the volume (distance heard) and pitch using a per-world auto-generated `serverconfig/drumsConfig.toml` file.
 
