@@ -54,6 +54,7 @@ public class Drums {
         if (!level.isClientSide) return;
         if (level.getBlockState(event.getPos()).getBlock() != ModBlocks.DRUM_BLOCK.get()) return;
 
+
         int id = event.getEntity().getId();
         Long latestTick = latestTicks.put(id, level.getGameTime());
         if (latestTick == null || latestTick + 1 != level.getGameTime()) {

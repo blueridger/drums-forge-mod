@@ -2,6 +2,7 @@
 	"parent": "minecraft:block/cube_column",
 	"textures": {
 		"end": "drums:block/drum_head",
-		"side": "drums:block/drum_side"
+		"side": "drums:block/drum_side",
+		"particle": "drums:block/blank"
 	}
 }
