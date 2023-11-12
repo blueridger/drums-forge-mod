@@ -56,7 +56,6 @@ public class Drums {
     public void onDrumHit(PlayerInteractEvent.LeftClickBlock event) {
         Level level = event.getWorld();
         if (!level.isClientSide) return;
-        LOGGER.debug(event.getCancellationResult().toString());
         if (level.getBlockState(event.getPos()).getBlock() != ModBlocks.DRUM_BLOCK.get()) return;
 
         int id = event.getPlayer().getId();
@@ -68,5 +67,4 @@ public class Drums {
             DrumsPacketHandler.INSTANCE.sendToServer(new ServerBoundDrumHitPacket(event.getPos()));
         }
     }
-
 }
