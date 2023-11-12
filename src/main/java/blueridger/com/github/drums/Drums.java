@@ -58,8 +58,8 @@ public class Drums {
     public void onDrumHit(PlayerInteractEvent.LeftClickBlock event) {
         Level level = event.getLevel();
         if (!level.isClientSide) return;
-        LOGGER.debug(event.getCancellationResult().toString());
         if (level.getBlockState(event.getPos()).getBlock() != ModBlocks.DRUM_BLOCK.get()) return;
+
 
         int id = event.getEntity().getId();
         Long latestTick = latestTicks.put(id, level.getGameTime());
@@ -74,9 +74,7 @@ public class Drums {
 
     @SubscribeEvent
     public void buildContents(CreativeModeTabEvent.BuildContents event) {
-        LOGGER.debug("HELLO FROM BUILD CONTENTS");
     	if (event.getTab() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            LOGGER.debug("HELLO FROM FUNCTIONAL BLOCKS");
     		
     		event.accept(ModBlocks.DRUM_ITEM);
     		event.accept(ModBlocks.DRUM_BLOCK);
