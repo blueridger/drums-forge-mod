@@ -1,12 +1,8 @@
 package blueridger.com.github.drums;
 
 import blueridger.com.github.drums.sound.ModSounds;
-import com.mojang.logging.LogUtils;
-
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,7 +23,6 @@ import java.util.Map;
 @Mod("drums")
 public class Drums {
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
     public static final String MODID = "drums";
 
     public static final Map<Integer, Long> latestTicks = new HashMap();
@@ -50,15 +45,13 @@ public class Drums {
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        LOGGER.debug("HELLO FROM PREINIT");
         event.enqueueWork(DrumsPacketHandler::init);
     }
 
     @SubscribeEvent
     public void onDrumHit(PlayerInteractEvent.LeftClickBlock event) {
-        Level level = event.getLevel();
+        World level = event.getWorld();
         if (!level.isClientSide) return;
-        LOGGER.debug(event.getCancellationResult().toString());
         if (level.getBlockState(event.getPos()).getBlock() != ModBlocks.DRUM_BLOCK.get()) return;
 
         int id = event.getEntity().getId();
@@ -70,17 +63,5 @@ public class Drums {
             DrumsPacketHandler.INSTANCE.sendToServer(new ServerBoundDrumHitPacket(event.getPos()));
         }
     }
-
-
-    @SubscribeEvent
-    public void buildContents(BuildCreativeModeTabContentsEvent event) {
-        LOGGER.debug("HELLO FROM BUILD CONTENTS");
-    	if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            LOGGER.debug("HELLO FROM FUNCTIONAL BLOCKS");
-    		
-    		event.accept(ModBlocks.DRUM_ITEM);
-    		event.accept(ModBlocks.DRUM_BLOCK);
-    	}
-	}
 
 }

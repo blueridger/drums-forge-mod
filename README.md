@@ -12,8 +12,7 @@ The networking logic makes synchronizing your playing with others work pretty we
 ## Inspiration and Personal Meaning
 This mod was inspired by time with a friend, exploring how we could flip the script of how we play Minecraft. Instead of playing in the default, colonial, extractive way, we have been exploring how we can practice our own decolonization in-game. This has in part looked like ritualizing the felling of a tree or the harvesting of an animal's life, showing gratitude and reverence for the gifts of the Earth. For us, this drum represents the first in-game mechanic intended specifically for ceremony.
 
-## Positionality
-I am a White colonial settler of mixed Western European descent living on Turtle Island, colonially known as North America, and more specifically the land of the Duwamish and Coast Salish peoples. My decolonization journey is early and endless, and I am grateful to have the indirect guidance of Indigenous voices such as:
+I'm a colonial settler. My decolonization journey is early and endless, and I am grateful to have the indirect guidance of Indigenous voices such as:
 - [All My Relations Podcast](https://www.allmyrelationspodcast.com/)
 - [Braiding Sweetgrass by Robin Wall Kimmerer](https://www.robinwallkimmerer.com/books)
 - [Sand Talk by Tyson Yunkaporta](https://www.harpercollins.com/products/sand-talk-tyson-yunkaporta)

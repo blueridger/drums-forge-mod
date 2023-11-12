@@ -1,9 +1,9 @@
 package blueridger.com.github.drums;
 
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.network.NetworkDirection;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.network.NetworkDirection;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 public class DrumsPacketHandler {
     private static final String PROTOCOL_VERSION = "1";
@@ -17,6 +17,6 @@ public class DrumsPacketHandler {
     public static void init() {
         int index = 0;
         INSTANCE.messageBuilder(ServerBoundDrumHitPacket.class, index++, NetworkDirection.PLAY_TO_SERVER).encoder(ServerBoundDrumHitPacket::encode)
-                .decoder(ServerBoundDrumHitPacket::new).consumerNetworkThread(ServerBoundDrumHitPacket::handle).add();
+                .decoder(ServerBoundDrumHitPacket::new).consumer(ServerBoundDrumHitPacket::handle).add();
     }
 }

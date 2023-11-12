@@ -2,14 +2,11 @@ package blueridger.com.github.drums;
 
 import blueridger.com.github.drums.block.ModBlocks;
 import blueridger.com.github.drums.sound.ModSounds;
-import com.mojang.logging.LogUtils;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.network.NetworkEvent;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.network.NetworkEvent;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Supplier;
@@ -21,20 +18,20 @@ public class ServerBoundDrumHitPacket {
         this.hitPos = pos;
     }
 
-    public ServerBoundDrumHitPacket(FriendlyByteBuf buffer) {
+    public ServerBoundDrumHitPacket(PacketBuffer buffer) {
         this(buffer.readBlockPos());
     }
 
-    public void encode(FriendlyByteBuf buffer) {
+    public void encode(PacketBuffer buffer) {
         buffer.writeBlockPos(this.hitPos);
     }
 
     public boolean handle(Supplier<NetworkEvent.Context> ctx) {
-        final var success = new AtomicBoolean(false);
+        final AtomicBoolean success = new AtomicBoolean(false);
         ctx.get().enqueueWork(() -> {
-            Level level = ctx.get().getSender().level();
+            World level = ctx.get().getSender().getCommandSenderWorld();
             if (level.hasChunkAt(hitPos) && level.getBlockState(hitPos).getBlock() == ModBlocks.DRUM_BLOCK.get()) {
-                level.playSound(null, hitPos, ModSounds.DRUM_SOUND.get(), SoundSource.BLOCKS,
+                level.playSound(null, hitPos, ModSounds.DRUM_SOUND.get(), SoundCategory.BLOCKS,
                         DrumsConfig.volumeEntry.get().floatValue(), DrumsConfig.pitchEntry.get().floatValue());
                 success.set(true);
             }
