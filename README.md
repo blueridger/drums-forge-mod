@@ -4,37 +4,44 @@
 
  [![](https://cf.way2muchnoise.eu/versions/drums.svg)](https://www.curseforge.com/minecraft/mc-mods/drums) [![Download on CurseForge](https://cf.way2muchnoise.eu/title/Drums_Download_on%20CurseForge%20->.svg)](https://www.curseforge.com/minecraft/mc-mods/drums)
 
-This is a very small mod for [Fabric](https://fabricmc.net/), [NeoForge](https://neoforged.net/) and (for Minecraft 1.20.1) [Minecraft Forge](https://github.com/MinecraftForge/MinecraftForge) that simply adds a craftable Drum block that makes a loud resonant drum noise when hit.
+This is a very small mod for [Fabric](https://fabricmc.net/), [NeoForge](https://neoforged.net/) and [Minecraft Forge](https://github.com/MinecraftForge/MinecraftForge) that simply adds a craftable Drum block that makes a loud resonant drum noise when hit.
 The block cannot be destroyed with a stick or with an open hand, allowing you to play it without breaking it. The crafting recipe involves 6 planks and 2 leather, and is added to your recipe book automatically. That's it!
 
-The networking logic makes synchronizing your playing with others work pretty well in low-latency servers. You can adjust the volume (distance heard) and pitch using the auto-generated `config/drums.properties` file (on Forge 1.20.1, the per-world `serverconfig/drumsConfig.toml` file).
+The networking logic makes synchronizing your playing with others work pretty well in low-latency servers. You can adjust the volume (distance heard) and pitch in the auto-generated `config/drums.properties` file.
 
 ## Supported versions
 
-| Minecraft | Loader | Source |
-|-----------|--------|--------|
-| 26.3 | Fabric (requires Fabric API) | `common/` + `fabric/` |
-| 26.3 | NeoForge | `common/` + `neoforge/` |
-| 1.20.1 | Forge | `forge-1.20.1/` (standalone legacy project) |
+| Minecraft | Fabric (needs Fabric API) | NeoForge | Forge |
+|-----------|:-------------------------:|:--------:|:-----:|
+| 26.3      | ✅ | ✅ |    |
+| 26.2      | ✅ | ✅ |    |
+| 26.1.2    | ✅ | ✅ |    |
+| 1.21.11   | ✅ | ✅ |    |
+| 1.21 – 1.21.1 | ✅ | ✅ (1.21.1) |    |
+| 1.20 – 1.20.1 | ✅ |    | ✅ (1.20.1) |
+
+These are the versions with the most players and mods. Download the jar whose name matches your loader and Minecraft version, e.g. `drums-neoforge-1.21.1-<version>.jar`.
 
 ## Building
 
-The Fabric and NeoForge versions share one codebase using a multi-loader layout: almost all of the mod lives in `common/`, and `fabric/` and `neoforge/` are thin entrypoints for each loader. Building needs Java 25:
+Each Minecraft version lives in its own folder under `versions/`, and each is a standalone Gradle project using a multi-loader layout: almost all of the mod is in `common/`, and `fabric/`, `neoforge/` and `forge/` are thin entrypoints for each loader. Minecraft changed a lot between these versions, so each folder has its own copy of the (small) code adapted to that version.
+
+Build everything (jars are collected in `dist/`):
 
 ```sh
-./gradlew build
-# -> fabric/build/libs/drums-fabric-26.3-<version>.jar
-# -> neoforge/build/libs/drums-neoforge-26.3-<version>.jar
+./build-all.sh              # all versions
+./build-all.sh 1.21.1 26.3  # just some
 ```
 
-Run a dev client with `./gradlew :fabric:runClient` or `./gradlew :neoforge:runClient`.
-
-The legacy Forge 1.20.1 version is a separate Gradle project that needs Java 17:
+Or build/run one version directly:
 
 ```sh
-cd forge-1.20.1 && ./gradlew build
-# -> forge-1.20.1/build/libs/drums-1.3-1.20.1.jar
+cd versions/1.21.1
+./gradlew build                 # -> fabric/build/libs and neoforge/build/libs
+./gradlew :fabric:runClient     # or :neoforge:runClient / :forge:runClient
 ```
+
+Start Gradle with Java 21 (the 26.x projects switch Gradle itself to Java 25 automatically). The Java version each Minecraft version compiles with (17 for 1.20.1, 21 for 1.21.x, 25 for 26.x) is downloaded automatically if you don't have it.
 
 ## Inspiration and Personal Meaning
 This mod was inspired by time with a friend, exploring how we could flip the script of how we play Minecraft. Instead of playing in the default, colonial, extractive way, we have been exploring how we can practice our own decolonization in-game. This has in part looked like ritualizing the felling of a tree or the harvesting of an animal's life, showing gratitude and reverence for the gifts of the Earth. For us, this drum represents the first in-game mechanic intended specifically for ceremony.

@@ -25,3 +25,6 @@ runs
 
 # os
 **/.DS_Store
+
+# build output
+dist

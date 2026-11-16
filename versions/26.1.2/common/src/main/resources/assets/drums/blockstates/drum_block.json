@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "drums:block/drum_block"
+		}
+	}
+}

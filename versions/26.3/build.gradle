@@ -1,0 +1,6 @@
+plugins {
+    // see https://maven.fabricmc.net/net/fabricmc/fabric-loom/maven-metadata.xml for new versions
+    id 'net.fabricmc.fabric-loom' version '1.19.4' apply false
+    // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
+    id 'net.neoforged.moddev' version '2.0.148' apply false
+}
