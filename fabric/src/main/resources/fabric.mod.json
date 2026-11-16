@@ -1,0 +1,32 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://github.com/blueridger/drums-forge-mod",
+        "sources": "https://github.com/blueridger/drums-forge-mod",
+        "issues": "https://github.com/blueridger/drums-forge-mod/issues"
+    },
+    "license": "${license}",
+    "icon": "${mod_id}.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "blueridger.com.github.drums.fabric.DrumsFabric"
+        ],
+        "client": [
+            "blueridger.com.github.drums.fabric.DrumsFabricClient"
+        ]
+    },
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=${java_version}"
+    }
+}
