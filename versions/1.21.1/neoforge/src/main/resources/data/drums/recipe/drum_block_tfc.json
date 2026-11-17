@@ -1,0 +1,27 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "tfc"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "#L#",
+    "# #",
+    "#L#"
+  ],
+  "key": {
+    "#": {
+      "tag": "tfc:lumber"
+    },
+    "L": {
+      "tag": "c:leathers"
+    }
+  },
+  "result": {
+    "id": "drums:drum_block",
+    "count": 1
+  }
+}

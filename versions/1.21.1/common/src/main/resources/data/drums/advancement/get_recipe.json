@@ -19,7 +19,8 @@
   ],
   "rewards": {
     "recipes": [
-      "drums:drum_block"
+      "drums:drum_block",
+      "drums:drum_block_tfc"
     ]
   }
 }

@@ -22,6 +22,10 @@ The networking logic makes synchronizing your playing with others work pretty we
 
 These are the versions with the most players and mods. Download the jar whose name matches your loader and Minecraft version, e.g. `drums-neoforge-1.21.1-<version>.jar`.
 
+### TerraFirmaCraft
+
+With [TerraFirmaCraft](https://www.curseforge.com/minecraft/mc-mods/terrafirmacraft) installed (1.20.1 Forge or 1.21.1 NeoForge), the drum is crafted from 6 TFC lumber and 2 leather in the same shape instead of planks, and it counts as a Large / Medium item in TFC inventories.
+
 ## Building
 
 Each Minecraft version lives in its own folder under `versions/`, and each is a standalone Gradle project using a multi-loader layout: almost all of the mod is in `common/`, and `fabric/`, `neoforge/` and `forge/` are thin entrypoints for each loader. Minecraft changed a lot between these versions, so each folder has its own copy of the (small) code adapted to that version.
